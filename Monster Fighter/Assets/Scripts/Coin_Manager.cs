@@ -7,12 +7,16 @@ public class Coin_Manager : MonoBehaviour
 {
     public static Coin_Manager instance;
     public TextMeshProUGUI text;
-    public static int coinCount;
+    public static int coinCount = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+        if(coinCount !=0 )
+        {
+            coinCount = 0;
+        }
     }
 
     public void changeCount()
