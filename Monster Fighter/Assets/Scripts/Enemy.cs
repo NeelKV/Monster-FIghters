@@ -36,13 +36,15 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             spawnCoin(gameObject);
             Spawner.currentMonsterCount--;
-            
+            Debug.Log("enemy dead by axe, reducing current monster count by 1: " + Spawner.currentMonsterCount);
+
         }
 
         if (collision.gameObject.CompareTag(COLLECTOR_TAG))
         {
             Destroy(gameObject);
             Spawner.currentMonsterCount--;
+            Debug.Log("enemy dead by collector, reducing current monster count by 1: " + Spawner.currentMonsterCount);
         }
     }
 

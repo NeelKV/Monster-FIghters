@@ -26,6 +26,15 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(spawnedMonster());
+        if(monsterCount != 20)
+        {
+            monsterCount = 20;
+        }
+
+        if(currentMonsterCount != 0)
+        {
+            currentMonsterCount = 0;
+        }
     }
 
     // Update is called once per frame
@@ -35,11 +44,11 @@ public class Spawner : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "Level 1")
             {
-                Game_Manager.Level_1_Won = false;
+                Game_Manager.Level_1_Won = true;
             }
             else if (SceneManager.GetActiveScene().name == "Level 2")
             {
-                Game_Manager.Level_2_Won = false;
+                Game_Manager.Level_2_Won = true;
             }
             Game_Manager.coinCount(Coin_Manager.coinCount);
             SceneManager.LoadScene(GAME_OVER_SCENE);
@@ -58,6 +67,7 @@ public class Spawner : MonoBehaviour
             spawnedEnemy = Instantiate(enemyReference[randomIndex]);
             monsterCount--;
             currentMonsterCount++;
+            Debug.Log("Monster created reducing monster count by 1: " + monsterCount + " increasing current conster count by 1: " + currentMonsterCount);
 
             if (randomSide == 0)
             {
@@ -113,5 +123,6 @@ public class Spawner : MonoBehaviour
                 }
             }
         }
+        Debug.Log("while loop ended");
     }
 }

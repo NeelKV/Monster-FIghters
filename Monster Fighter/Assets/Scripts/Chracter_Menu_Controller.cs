@@ -47,6 +47,11 @@ public class Chracter_Menu_Controller : MonoBehaviour
         
     }
 
+    private void FixedUpdate()
+    {
+        text.text = "X" + Game_Manager.coin_Count;
+    }
+
 
 
     public void returnToMainMenu()
